@@ -9,7 +9,7 @@
 
 (def config {"zookeeper.connect" (System/getenv "ZOOKEEPER")
              "group.id" "weblog-riemann"
-             "auto.offset.reset" "smallest"
+             "auto.offset.reset" "largest"
              "auto.commit.enable" "false"})
 
 (defn- parse
@@ -42,7 +42,7 @@
 
 (defn- send
   [r m]
-  (clojure.pprint/pprint m)
+  ;(clojure.pprint/pprint m)
   (send-event r m))
 
 (defn -main [& args]
